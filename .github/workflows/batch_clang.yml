@@ -8,14 +8,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Cloning RISC-V toolchain
-        run: git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
-      - name: Compressing all cloned folders
-        run: zip -r riscv_gnu_pack.zip .
+      - name: Downloading input objects
+        run: wget https://github.com/advancedwebdeveloper/clang11rc1_cross_i686/releases/download/0.1/batch_clang.zip
+      - name: Decompressing required object files
+        run: unzip batch_clang.zip
       - name: List the files
         run: ls
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: upload-archive
-          path: riscv_gnu_pack.zip
+          path: cc1_main.cpp.o
