@@ -1,0 +1,21 @@
+name: Compiling Clang's executable, for i686 Ubuntu 18
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Cloning RISC-V toolchain
+        run: git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+      - name: Compressing all cloned folders
+        run: zip -r riscv_gnu_pack.zip .
+      - name: List the files
+        run: ls
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: upload-archive
+          path: riscv_gnu_pack.zip
