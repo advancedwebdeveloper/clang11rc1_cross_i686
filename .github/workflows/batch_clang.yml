@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Installing i686 support packages, for GCC
-        run: sudo dpkg --add-architecture i386 && sudo apt update -y && sudo apt install gcc-multilib libstdc++ -y
+        run: sudo dpkg --add-architecture i386 && sudo apt update -y && sudo apt install gcc-multilib g++-multilib libc6-dev-i386 -y
       - name: Let's find libtinfo
         run: apt search libtinfo* && sudo apt install libtinfo5 libtinfo5:i386 libtinfo-dev -y
       - name: Checking available lib32stdc++* packages
