@@ -11,7 +11,7 @@ jobs:
       - name: Installing i686 support packages, for GCC
         run: sudo dpkg --add-architecture i386 && sudo apt update -y && sudo apt install gcc-multilib -y
       - name: Let's find libtinfo
-        run: apt search libtinfo
+        run: apt search libtinfo5:i386
       - name: Checking available lib32stdc++* packages
         run: apt search lib32stdc++
         #libtinfo-dev.i686 libstdc++-8-dev-i386-cross -y
