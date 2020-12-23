@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Downloading input objects
-        run: wget https://github.com/advancedwebdeveloper/clang11rc1_cross_i686/releases/download/0.1/batch_clang.zip
+        run: wget https://github.com/advancedwebdeveloper/clang11rc1_cross_i686/releases/download/0.1/batch_clang.zip && wget https://github.com/advancedwebdeveloper/clang11rc1_cross_i686/releases/download/1.1/libLLVMDemangle.a
       - name: Decompressing required object files
         run: unzip batch_clang.zip
       - name: List the files
