@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Installing i686 support packages, for GCC
-        run: sudo apt update -y && sudo apt install gcc-multilib -y
+        run: dpkg --add-architecture i386 && sudo apt update -y && sudo apt install gcc-multilib libtinfo-dev.i386 libstdc++-8-dev-i386-cross -y
       - name: Downloading input objects
         run: wget https://github.com/advancedwebdeveloper/clang11rc1_cross_i686/releases/download/0.1/batch_clang.zip && wget https://github.com/advancedwebdeveloper/clang11rc1_cross_i686/releases/download/1.1/libLLVMDemangle.a
       - name: Decompressing required object files
